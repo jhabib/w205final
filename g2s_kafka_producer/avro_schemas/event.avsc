@@ -1,0 +1,13 @@
+{
+
+  "namespace": "sauron.avro.schemas",
+  "type": "record",
+  "name": "event",
+  "fields": [
+    {"name": "_id", "type": "string"},
+    {"name": "Topic", "type": "string" },
+    {"name": "Key", "type": "string"},
+    {"name": "Value", "type": "string" }
+  ]
+
+}

@@ -1,0 +1,30 @@
+{
+  "kafka": {
+    "uri": "localhost:9092",
+    "topics": {
+      "profiles": "profiles",
+      "events": "events"
+    }
+  },
+  "bigquery": {
+    "projectid": "sauronbigquery",
+    "dataset": "sauron",
+    "tables": {
+      "profiles": "profiles",
+      "events": "events"
+    }
+  },
+  "local_mongodb": {
+    "uri": "192.168.1.142:27017",
+    "source_db": "sauron",
+    "source_collections": {
+      "profiles": "profile",
+      "events": "event"
+    },
+    "counters_db": "counters",
+    "counters_collection": {
+      "profiles": "profile_counters",
+      "events": "event_counters"
+    }
+  }
+}
