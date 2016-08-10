@@ -2,12 +2,13 @@
 # uses the kafka consumer (SauronConsumer) to get json from kafka
 
 import json
-import uuid
 import time
+import uuid
+from threading import Thread
 
 from googleapiclient import discovery
-from sauron_consumer import SauronConsumer
-from threading import Thread
+
+from kafka.sauron_consumer import SauronConsumer
 
 
 class SauronBigQueryManager:

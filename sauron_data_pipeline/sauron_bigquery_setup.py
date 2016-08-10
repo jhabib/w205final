@@ -1,15 +1,15 @@
 # file that uses the bigquery-python library
 # to insert streaming data into biqquery
+import json
 import logging
-import urllib2
 import time
 import uuid
-import json
 
 from bigquery import get_client
-from sauron_consumer import SauronConsumer
-from pandas.io.json import json_normalize
 from flatten_json import flatten_json
+from pandas.io.json import json_normalize
+
+from kafka.sauron_consumer import SauronConsumer
 
 logging.basicConfig()
 
