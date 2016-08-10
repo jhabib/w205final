@@ -17,60 +17,60 @@ class SauronProducer(threading.Thread):
 
         threading.Thread.__init__(self)
 
-        self.COUNTER_CONN = MongoClient(mongodb_uri)
-        self.COUNTER_DB = self.COUNTER_CONN[counters_db]
-        self.COUNTER_COLLECTION = self.COUNTER_DB[counters_collection]
-        self.COUNTER_FIELD = 'value'
+        self.counter_conn = MongoClient(mongodb_uri)
+        self.counter_db = self.counter_conn[counters_db]
+        self.counter_collection = self.counter_db[counters_collection]
+        self.counter_field = 'value'
 
-        self.SOURCE_URI = mongodb_uri
-        self.SOURCE_DB = source_db
-        self.SOURCE_COLLECTION = source_collection
+        self.source_uri = mongodb_uri
+        self.source_db = source_db
+        self.source_collection = source_collection
 
-        self.MCM = MongoCollectionManager(self.SOURCE_URI, self.SOURCE_DB, self.SOURCE_COLLECTION)
+        self.mcm = MongoCollectionManager(self.source_uri, self.source_db, self.source_collection)
 
-        self.KAFKA_URI = kafka_uri
-        self.KAFKA_TOPIC = kafka_topic
+        self.kafka_uri = kafka_uri
+        self.kafka_topic = kafka_topic
 
-        self.SOURCE_FIELD = '_id'
-        self.LAST_MSG_ID = 0
-        self.CURSOR_LIMIT = 5000
+        self.source_field = '_id'
+        self.last_msg_id = 0
+        self.cursor_limit = 5000
 
-        self.GET_INTERVAL = 0.001 # seconds
-        self.SEND_INTERVAL = 0.001 # seconds
+        self.get_interval = 0.001 # seconds
+        self.send_interval = 0.001 # seconds
 
-        self.PRODUCER = KafkaProducer(bootstrap_servers=[self.KAFKA_URI],
-                                      value_serializer=lambda v: json.dumps(v).encode('utf-8'))
+        self.kafka_producer = KafkaProducer(bootstrap_servers=[self.kafka_uri],
+                                            value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
     def run(self):
         # get the last message id that we know was sent
-        cur = self.COUNTER_COLLECTION.find_one(sort=[(self.COUNTER_FIELD, -1)])
+        cur = self.counter_collection.find_one(sort=[(self.counter_field, -1)])
         if cur is not None:
-            # set the LAST_MSG_ID to value from DB
-            self.LAST_MSG_ID = cur[self.COUNTER_FIELD]
+            # set the last_msg_id to value from DB
+            self.last_msg_id = cur[self.counter_field]
 
         res_id = 0
         while True:
-            print('\ngetting data from %s.%s' % (self.SOURCE_DB, self.SOURCE_COLLECTION))
-            res = self.MCM.find_documents(self.SOURCE_FIELD, self.LAST_MSG_ID, self.CURSOR_LIMIT)
+            print('\ngetting data from %s.%s' % (self.source_db, self.source_collection))
+            res = self.mcm.find_documents(self.source_field, self.last_msg_id, self.cursor_limit)
             if len(res) > 0:  # don't send an empty message
                 for r in res:
-                    res_id = r[self.SOURCE_FIELD]
+                    res_id = r[self.source_field]
                     try:
-                        print('\nsending message to %s on %s' % (self.KAFKA_TOPIC, self.KAFKA_URI))
-                        self.PRODUCER.send(self.KAFKA_TOPIC, r)
+                        print('\nsending message to %s on %s' % (self.kafka_topic, self.kafka_uri))
+                        self.kafka_producer.send(self.kafka_topic, r)
                     except Exception as e:
                         print('Exception occurred when sending data to Kafka')
                         print(e.message)
-                    time.sleep(self.SEND_INTERVAL) # send message interval
+                    time.sleep(self.send_interval) # send message interval
 
-            if res_id > self.LAST_MSG_ID:
-                self.LAST_MSG_ID = res_id
+            if res_id > self.last_msg_id:
+                self.last_msg_id = res_id
                 try:
-                    self.COUNTER_COLLECTION.insert_one({self.COUNTER_FIELD: self.LAST_MSG_ID})
+                    self.counter_collection.insert_one({self.counter_field: self.last_msg_id})
                 except Exception as e:
-                    print('Exception occurred when writing to %s.%s' % (self.COUNTER_DB, self.COUNTER_COLLECTION))
+                    print('Exception occurred when writing to %s.%s' % (self.counter_db, self.counter_collection))
                     print(e.message)
-            time.sleep(self.GET_INTERVAL)  # get from source interval
+            time.sleep(self.get_interval)  # get from source interval
 
 
 # Launch Kafka producers for profiles and events
