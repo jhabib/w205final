@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/g2s_kafka_producer.iml" filepath="$PROJECT_DIR$/.idea/g2s_kafka_producer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/sauron_data_pipeline.iml" filepath="$PROJECT_DIR$/.idea/sauron_data_pipeline.iml" />
     </modules>
   </component>
 </project>
