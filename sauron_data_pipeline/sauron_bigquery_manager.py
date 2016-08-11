@@ -4,6 +4,7 @@
 import json
 import time
 import uuid
+import threading
 from threading import Thread
 
 from googleapiclient import discovery
@@ -15,12 +16,14 @@ class SauronBigQueryManager:
     """
     Handles row formatting and inserts for Bigquery
     """
-    def __init__(self, bigquery, project_id, dataset_id, table_name, num_retries=5):
-        self.bigquery = bigquery
+    def __init__(self, credentials, project_id, dataset_id, table_name, num_retries=5):
+        self.credentials = credentials
         self.project_id = project_id
         self.dataset_id = dataset_id
         self.table_name = table_name
         self.num_retries = num_retries
+
+        self.bigquery = discovery.build('bigquery', 'v2', credentials=self.credentials)
 
     # format rows to bigquery friendly
     @staticmethod
@@ -53,19 +56,26 @@ class RowGetter:
         self.fill_queue(json.loads(m))
 
 
-class MessageBatch:
+class MessageBatch(threading.Thread):
     """
     Pops messages from shared Queue and batches them in memory; Sends batch to a callback.
     This is not safe because we can drop messages equal to batch size.
     In production we should get batches of messages from Kafka and send them onward in chunks,
     or store messages to a file and batch from there
     """
+
+    daemon = True
+
     def __init__(self, shared_queue, send_callback, batch_size=100):
+
+        threading.Thread.__init__(self)
+
         self.shared_queue = shared_queue
         self.send_callback = send_callback
         self.batch_size = batch_size
 
-    def batch_rows(self):
+    # def batch_rows(self):
+    def run(self):
         this_batch = []
         while True:
             while len(this_batch) < self.batch_size and self.shared_queue.qsize() > 0:
@@ -109,24 +119,19 @@ class SetupBigQueryHandler:
         Setup threads for Kafka consumer and  bigquery inserts
         :return: None
         """
-        # Create a bigquery object
-        bigquery = discovery.build('bigquery', 'v2', credentials=self.credentials)
 
         # Create an instance of the Query manager wrapper
-        sbqm = SauronBigQueryManager(bigquery, self.project_id, self.dataset_id, self.table_name, self.num_retries)
-        mb = MessageBatch(self.shared_queue, sbqm.stream_row_to_bigquery, self.batch_size)
+        sbqm = SauronBigQueryManager(self.credentials, self.project_id, self.dataset_id, self.table_name, self.num_retries)
         rg = RowGetter(self.shared_queue)
 
-        batch_worker = Thread(target=mb.batch_rows)
-        batch_worker.setDaemon(True)
-        batch_worker.start()
-
         threads = [
+            MessageBatch(self.shared_queue, sbqm.stream_row_to_bigquery, self.batch_size),
             SauronConsumer(self.kafka_uri, self.kafka_topic, rg.get_row)  # Run Kafka consumer in a thread
         ]
         for t in threads:
             t.start()
-            t.join()
+            print('thread started %s' % (t))
+        t.join()
         time.sleep(10)
 
 

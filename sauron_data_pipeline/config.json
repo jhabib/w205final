@@ -15,7 +15,7 @@
     }
   },
   "local_mongodb": {
-    "uri": "localhost:27017",
+    "uri": "169.254.109.200:27017",
     "source_db": "sauron",
     "source_collections": {
       "profiles": "profile",

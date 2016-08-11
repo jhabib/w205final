@@ -15,5 +15,6 @@ if __name__ == '__main__':
     credentials = GoogleCredentials.get_application_default()
 
     print('setting up bigquery handler for %s' % (events_topic))
-    handler_setup(events_topic, events_table, events_shared_queue, config, credentials, 5, 1000)
+    # bigquery allows 500 rows max per request
+    handler_setup(events_topic, events_table, events_shared_queue, config, credentials, 5, 500)
 
