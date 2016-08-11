@@ -37,7 +37,7 @@ class SauronProducer(threading.Thread):
 
         self.source_field = '_id'
         self.last_msg_id = 0
-        self.cursor_limit = 5000
+        self.cursor_limit = 500
 
         self.get_interval = 0.001 # seconds
         self.send_interval = 0.001 # seconds
