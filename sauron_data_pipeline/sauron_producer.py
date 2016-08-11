@@ -114,7 +114,7 @@ def launch_producer_threads():
     ]
     for t in threads:
         t.start()
-    t.join()
+    # t.join()
     time.sleep(10)
 
 if __name__ == "__main__":
