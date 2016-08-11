@@ -9,6 +9,10 @@ from pymongo import MongoClient
 
 
 class SauronProducer(threading.Thread):
+    """
+    SauronProducer gets a set of documents from a MongoDB collection
+    And sends them over to a Kafka topic
+    """
     daemon = True
 
     def __init__(self, mongodb_uri, source_db, source_collection,
@@ -42,6 +46,10 @@ class SauronProducer(threading.Thread):
                                             value_serializer=lambda v: json.dumps(v).encode('utf-8'))
 
     def run(self):
+        """
+        Override the run method for threading.Thread
+        :return: None
+        """
         # get the last message id that we know was sent
         cur = self.counter_collection.find_one(sort=[(self.counter_field, -1)])
         if cur is not None:
@@ -61,9 +69,9 @@ class SauronProducer(threading.Thread):
                     except Exception as e:
                         print('Exception occurred when sending data to Kafka')
                         print(e.message)
-                    time.sleep(self.send_interval) # send message interval
+                    time.sleep(self.send_interval)  # send message interval
 
-            if res_id > self.last_msg_id:
+            if res_id > self.last_msg_id:  # keep track of the last id sent to Kafka
                 self.last_msg_id = res_id
                 try:
                     self.counter_collection.insert_one({self.counter_field: self.last_msg_id})
@@ -75,6 +83,10 @@ class SauronProducer(threading.Thread):
 
 # Launch Kafka producers for profiles and events
 def launch_producer_threads():
+    """
+    Start a producer for each topic on its own thread
+    :return: None
+    """
     with open('config.json') as config_file:
         config = json.load(config_file)
 

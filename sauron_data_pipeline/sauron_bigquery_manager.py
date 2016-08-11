@@ -8,7 +8,7 @@ from threading import Thread
 
 from googleapiclient import discovery
 
-from kafka.sauron_consumer import SauronConsumer
+from sauron_consumer import SauronConsumer
 
 
 class SauronBigQueryManager:
@@ -105,6 +105,10 @@ class SetupBigQueryHandler:
         self.batch_size = batch_size
 
     def setup_bigquery_handler(self):
+        """
+        Setup threads for Kafka consumer and  bigquery inserts
+        :return: None
+        """
         # Create a bigquery object
         bigquery = discovery.build('bigquery', 'v2', credentials=self.credentials)
 
@@ -127,6 +131,17 @@ class SetupBigQueryHandler:
 
 
 def handler_setup(topic, table, shared_queue, config, credentials, retries=2, batch_size=100):
+    """
+    Setup Kafka consumer and Biguery handler
+    :param topic: Source Kafka topic
+    :param table: Destination Bigquery table
+    :param shared_queue: In memory queue for batching messages
+    :param config: Config file containing Kafka and Bigquery params
+    :param credentials: Bigquery credentials
+    :param retries: Number of retries for Bigquery inserts
+    :param batch_size: Number of messages to batch up before attempting an insert to Bigquery
+    :return: None
+    """
     project_id = config["bigquery"]["projectid"]
     dataset_id = config["bigquery"]["dataset"]
     table_name = config["bigquery"]["tables"][table]
