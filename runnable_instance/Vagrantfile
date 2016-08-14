@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://atlas.hashicorp.com/search.
+  config.vm.box = "w205finalmjh"
+  config.vm.box_url = "https://www.dropbox.com/s/6emcagq9m2n2ebe/w205finalmjh.box?raw=1"
+  config.vm.network "forwarded_port", guest: 27017, host: 27017 # MongoDB
+  config.vm.network "forwarded_port", guest: 2181, host: 2181 # Zookeeper
+  config.vm.network "forwarded_port", guest: 9092, host: 9092 # Kafka
+  config.vm.provision "shell", path: "provisioner.sh"
+
+end
