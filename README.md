@@ -72,7 +72,10 @@ The BigQuery project is called "sauronbigquery" and has the following structure:
 | --------- | --------- |
 | Project Id | sauronbigquery |
 | Dataset Name | sauron | 
-| Tables | Profiles 
-			Events | 
-| Views | |
+| Table | profiles 
+Table | events | 
+| View | egmWinLossOverTime - shows wagers and wins over time |
+| View | view_winLossByEgm - shows aggregate wagers and wins | 
+| View | wagerCategoryCountsByEgm - shows counts of various wager categories by Egm. This would show null for everything because we do not have wager categories in simulated Egms.
+
 
