@@ -65,5 +65,13 @@ This implements all the classes necessary for getting the data from a Kafka Cons
 
 These are setup scripts to launch the bigquery handlers for the "profiles" and "events" data sources. The main job of the scripts is to get the Google API credentials from an environment variable, and pass the credentials and config file to the bigquery handler setup.
 
+### Google BigQuery Project Structure
+The BigQuery project is called "sauronbigquery" and has the following structure:
 
+| Component | Name/Id |
+| Project Id | sauronbigquery |
+| Dataset Name | sauron | 
+| Tables | Profiles 
+			Events | 
+| Views | |
 
