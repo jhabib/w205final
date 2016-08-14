@@ -22,7 +22,7 @@ I can also share a compiled .Net console app that loads the various components o
 - Have a local instance of MongoDB running and accessible on port 27017 (no passwords please); OR, have the Vagrant instance from "running-instance" up and port 27017 forwarded to Vagrant
 - Have .Net Framework 4.5.1
 
-SauronConsole can be downloaded at this URL: 
+SauronConsole can be downloaded at this URL: https://github.com/jhabib/w205final/blob/master/chsarp_snippets/SauronConsole/bin/Debug.zip
 
 I have also recorded a video of this RLT/G2S-stream-to-MongoDB process that you can download at: 
 
