@@ -5,7 +5,6 @@ import json
 import time
 import uuid
 import threading
-from threading import Thread
 
 from googleapiclient import discovery
 

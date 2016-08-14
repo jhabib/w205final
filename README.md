@@ -32,10 +32,36 @@ These are components that I developed specifically for the class project and hav
 Source code for these components is in **sauron_data_pipeline**.
 
 ### Project Configuration
-**config.json** - This file contains URLs and topic/table names for Kafka, BigQuery and MongoDB (counters collection). I will describe below how some of these can be changed to restart the streaming process from scratch.
+**config.json** 
+
+This file contains URLs and topic/table names for Kafka, BigQuery and MongoDB (counters collection). I will describe below how some of these can be changed to restart the streaming process from scratch.
 
 ### MongoDB Interaction
-**mongo_collection_manager.py** - This wraps the collection.find and collection.remove functions in pymongo's MongoClient. This is there more for convenience than anything else. For production, I will either strip this out or make it a more complete wrapper. Right now, this is only used in sauron_producer.py to get data from the source document collections i.e. the collections where the G2S Host dumps G2S messages that have come in from Slot machines (RLT). All other interaction with MongoDB e.g. updating the counter database, is still handled directly with MongoClient.
+**mongo_collection_manager.py** 
+
+This wraps the collection.find and collection.remove functions in pymongo's MongoClient. This is there more for convenience than anything else. For production, I will either strip this out or make it a more complete wrapper. Right now, this is only used in sauron_producer.py to get data from the source document collections i.e. the collections where the G2S Host dumps G2S messages that have come in from Slot machines (RLT). All other interaction with MongoDB e.g. updating the counter database, is still handled directly with MongoClient.
 
 ### Kafka Interaction
 **sauron_producer.py** 
+
+This implements a Kafka producer class, and creates two instances of the class when run. The producer has the following jobs:
+- Get data from a MongoDB collection
+- Send data to a Topic in a Kafka queue
+- Save the _id of the last data item sent to Kafka (so we can resume where we left off)
+
+When you run sauron_producer.py, it will create two threads: one for the "profiles" collection/topic and another for the "events" collection/topic. The threads keep running indefinitely and poll for new data from MongoDB.
+
+**sauron_consumer.py**
+
+This implements a SauronConsumer class, used for retrieving data from a Kafka topic. It essentially gets a bunch of messages from a Kafka topic and calls a "callback" function for each message. There is a test function implemented in sauron_consumer.py which will print messages to the console.
+
+**sauron_bigquery_manager.py**
+
+This implements all the classes necessary for getting the data from a Kafka Consumer, batching up that data in memory, and inserting all the data in the batch to a bigquery table.
+
+**start_events_bigquery_handler.py** and **start_profiles_bigquery_handler.py**
+
+These are setup scripts to launch the bigquery handlers for the "profiles" and "events" data sources. The main job of the scripts is to get the Google API credentials from an environment variable, and pass the credentials and config file to the bigquery handler setup.
+
+
+

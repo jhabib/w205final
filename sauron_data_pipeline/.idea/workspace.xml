@@ -50,21 +50,21 @@
       <file leaf-file-name="mongo_collection_manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/mongo_collection_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="4" column="28" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="28" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sauron_producer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sauron_producer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sauron_producer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-525">
-              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="-3408">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#16#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,7 +72,7 @@
       <file leaf-file-name="sauron_bigquery_setup.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sauron_bigquery_setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2244">
+            <state relative-caret-position="915">
               <caret line="68" column="10" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
               <folding />
             </state>
@@ -82,11 +82,21 @@
       <file leaf-file-name="sauron_bigquery_manager.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sauron_bigquery_manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3795">
-              <caret line="123" column="83" selection-start-line="123" selection-start-column="83" selection-end-line="123" selection-end-column="83" />
+            <state relative-caret-position="1025">
+              <caret line="145" column="93" selection-start-line="145" selection-start-column="93" selection-end-line="145" selection-end-column="93" />
               <folding>
                 <element signature="e#108#119#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="start_profiles_bigquery_handler.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/start_profiles_bigquery_handler.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="297">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,8 +114,8 @@
       <file leaf-file-name="sauron_consumer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sauron_consumer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1584">
-              <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+            <state relative-caret-position="188">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="20" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -139,9 +149,9 @@
         <option value="$PROJECT_DIR$/mongo_collection_manager.py" />
         <option value="$PROJECT_DIR$/start_events_bigquery_handler.py" />
         <option value="$PROJECT_DIR$/sauron_consumer.py" />
-        <option value="$PROJECT_DIR$/sauron_bigquery_manager.py" />
         <option value="$PROJECT_DIR$/sauron_producer.py" />
         <option value="$PROJECT_DIR$/config.json" />
+        <option value="$PROJECT_DIR$/sauron_bigquery_manager.py" />
       </list>
     </option>
   </component>
@@ -152,9 +162,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1357" />
-    <option name="width" value="1390" />
-    <option name="height" value="1755" />
+    <option name="x" value="-13" />
+    <option name="y" value="-13" />
+    <option name="width" value="2762" />
+    <option name="height" value="1770" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -579,27 +590,27 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1357" y="0" width="1390" height="1755" extended-state="0" />
-    <editor active="false" />
+    <frame x="-13" y="-13" width="2762" height="1770" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14184953" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20430514" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32845744" sideWeight="0.5047022" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32521397" sideWeight="0.3395015" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32845744" sideWeight="0.49529782" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32521397" sideWeight="0.4954683" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285056" sideWeight="0.49848944" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35878867" sideWeight="0.49244714" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27416918" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.287311" sideWeight="0.6623867" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28703094" sideWeight="0.6604985" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46017116" sideWeight="0.49848944" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35878867" sideWeight="0.49244714" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.46017116" sideWeight="0.49848944" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32982224" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -861,10 +872,29 @@
     <entry file="file://$PROJECT_DIR$/sauron_avro/kafka_avro_consumer.py" />
     <entry file="file://$PROJECT_DIR$/sauron_avro/kafka_avro_producer.py" />
     <entry file="file://$PROJECT_DIR$/kafka/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/start_profiles_bigquery_handler.py">
+    <entry file="file://$PROJECT_DIR$/config.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="561">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sauron_consumer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mongo_collection_manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -876,56 +906,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sauron_consumer.py">
+    <entry file="file://$PROJECT_DIR$/sauron_producer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1584">
-          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+        <state relative-caret-position="-3408">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sauron_bigquery_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3795">
-          <caret line="123" column="83" selection-start-line="123" selection-start-column="83" selection-end-line="123" selection-end-column="83" />
-          <folding>
-            <element signature="e#108#119#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sauron_bigquery_setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2244">
+        <state relative-caret-position="915">
           <caret line="68" column="10" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.json">
+    <entry file="file://$PROJECT_DIR$/sauron_bigquery_manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mongo_collection_manager.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="4" column="28" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="28" />
+        <state relative-caret-position="1025">
+          <caret line="145" column="93" selection-start-line="145" selection-start-column="93" selection-end-line="145" selection-end-column="93" />
           <folding>
-            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#108#119#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sauron_producer.py">
+    <entry file="file://$PROJECT_DIR$/start_profiles_bigquery_handler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-525">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+        <state relative-caret-position="297">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding />
         </state>
       </provider>
