@@ -19,7 +19,7 @@ While I cannot share the *entire* sorce code of the G2S Host, I can share code s
 I can also share a compiled .Net console app that loads the various components of the G2S Host. This console app is called **SauronConsole**. If you can run SauronConsole on a Windows PC (Win 7, x64 or similar) and give it a public IP address, I can point RLT to it and show data streaming in. That PC must meet the following requirements:
 - Have an IP address that I can access from the (public) Internet
 - Have ports 9090 and 9091 open and accessible. RLT will need to connect to port 9090 for http and 9091 for https.
-- Have a local instance of MongoDB running and accessible on port 27017 (no passwords please)
+- Have a local instance of MongoDB running and accessible on port 27017 (no passwords please); OR, have the Vagrant instance from "running-instance" up and port 27017 forwarded to Vagrant
 - Have .Net Framework 4.5.1
 
 SauronConsole can be downloaded at this URL: 
