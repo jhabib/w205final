@@ -81,11 +81,8 @@ Table | events - Events are the actual messages that come in from Egms. |
 The "profiles" and "events" tables are pretty simple. The both have the same structure:
 
 - _id (integer) - an ever incremening _id assigned to each message as it comes in 
-
 - Topic (string) - defines whether an event or a profile came in; a little redundant at this point
-
-_ Key (string) - a string of the form "Unique_EgmId-G2SMessage_Code-eventId 
-
+- Key (string) - a string of the form "Unique_EgmId-G2SMessage_Code-eventId 
 - Value (string) - a JSON encoded string representing the entire contents of a G2S message 
 
 Please note that the tables in BigQuery are append-only and I have not yet implemented table partitioning or jobs to delete tables after some time. So the tables will continue to grow as new data comes in - up to the limit that Google allows.
