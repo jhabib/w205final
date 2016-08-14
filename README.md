@@ -129,8 +129,12 @@ Start the BigQuery handler for Events:
 This will start consuming messages from the `events` Kafka topic and send them to the 'events' table in sauron BigQuery database.
 
 ## Notes on Running the Code:
-- Make sure that ports 27017, 2181 and 9092 are free on your host machine. Vagrant will forward these to the vm. Or you can comment out these lines from the Vagrantfile if you don't want to forward these ports. Doing that will prevent SauronConsole from being able to access the MongoDB on the Vagrant vm.
-- The MongoDB `sauron` database has about 350,000 documents for `events` and 600 or so for `profiles`. Most of these have been sent to BigQuery already and running the producers/handlers will exhaust the documents list pretty quickly. This is because the sauron_producer keeps track of the last _id it sent to Kafka and resumes sending from the next _id. To reset the streaming from scratch do the following:
+- Make sure that ports 27017, 2181 and 9092 are free on your host machine. Vagrant will forward these to the vm. Or you can comment out these lines from the Vagrantfile if you don't want to forward these ports. Doing that will prevent SauronConsole from being able to access the MongoDB on the Vagrant vm. This is because SauronConsole is hard-coded to look for a MongoDB instance at `localhost:27017`.
+
+## Resetting the Streaming
+The MongoDB `sauron` database has about 350,000 documents for `events` and 600 or so for `profiles`. Most of these have been sent to BigQuery already and running the producers/handlers will exhaust the documents list pretty quickly. This is because the sauron_producer keeps track of the last _id it sent to Kafka and resumes sending from the next _id. Without RLT and SauronConsole running, new data will not be getting inserted into the MongoDB either.
+
+To reset the streaming from scratch do the following:
 -- Delete the `event_counters` and `profile_counters` collections from the `counters` **database** in MongoDB
 -- Either, delete the `profiles` and `events` Tables on BigQuery and recreate them with the same name and schema; OR
 -- Create new tables in BigQuery for profiles and events (profiles_new, events_new) AND change the corresponding names in config.json
