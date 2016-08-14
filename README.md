@@ -55,6 +55,8 @@ When you run sauron_producer.py, it will create two threads: one for the "profil
 
 This implements a SauronConsumer class, used for retrieving data from a Kafka topic. It essentially gets a bunch of messages from a Kafka topic and calls a "callback" function for each message. There is a test function implemented in sauron_consumer.py which will print messages to the console.
 
+### Google BigQuery Interaction
+
 **sauron_bigquery_manager.py**
 
 This implements all the classes necessary for getting the data from a Kafka Consumer, batching up that data in memory, and inserting all the data in the batch to a bigquery table.
