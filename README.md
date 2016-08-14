@@ -72,10 +72,29 @@ The BigQuery project is called "sauronbigquery" and has the following structure:
 | --------- | --------- |
 | Project Id | sauronbigquery |
 | Dataset Name | sauron | 
-| Table | profiles 
-Table | events | 
+| Table | profiles - each Egm has "profiles" associated with it that contain identifiers, denominations, meters etc. Essentially, meta data about the various classes in G2S.
+Table | events - Events are the actual messages that come in from Egms. | 
 | View | egmWinLossOverTime - shows wagers and wins over time |
 | View | view_winLossByEgm - shows aggregate wagers and wins | 
 | View | wagerCategoryCountsByEgm - shows counts of various wager categories by Egm. This would show null for everything because we do not have wager categories in simulated Egms.
 
+The "profiles" and "events" tables are pretty simple. The both have the same structure:
+- _id (integer) - an ever incremening _id assigned to each message as it comes in 
+- Topic (string) - defines whether an event or a profile came in; a little redundant at this point
+_ Key (string) - a string of the form "Unique_EgmId-G2SMessage_Code-eventId 
+- Value (string) - a JSON encoded string representing the entire contents of a G2S message 
+
+Please note that the tables in BigQuery are append-only and I have not yet implemented table partitioning or jobs to delete tables after some time. So the tables will continue to grow as new data comes in - up to the limit that Google allows.
+
+### Tableau Workbook
+I created a Tableau workbook called **sauron_charts** to help visualize some data. Our marketing folks use Tableau so I figured I'd create a few examples for them.
+
+Note: our RLT load test scripts wager and win $100 per bet. Since that would result in atrocious aggregate values, I've used log values to make things look more realistic. I also multiplied the wins and wagers with a random number in the BigQuery view (egmWinLossOverTime) to make things a little more realistic.
+
+Tableau worksheets:
+
+- logWinsWagersPerHour - average of wagers and wins per hour per Egm. This should tell marketing how much money is bet and won on an Egm per hour.
+- wagersWinsHistogram - wagers and wins binned into different dolalr values e.g. $0-$10, $11-$20 and so forth. This should tell marketing people what's the most popular wager amount.
+- netPlayerWinPerHour - (wager - win) aggregated per hour per Egm. Pretty meaningless but marketing people like this kind of stuff.
+- cumulativePlayerWinsOverTime - a lot like the last graph but shows cumulative (wager-win) over time
 
