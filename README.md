@@ -135,9 +135,13 @@ This will start consuming messages from the `events` Kafka topic and send them t
 The MongoDB `sauron` database has about 350,000 documents for `events` and 600 or so for `profiles`. Most of these have been sent to BigQuery already and running the producers/handlers will exhaust the documents list pretty quickly. This is because the sauron_producer keeps track of the last _id it sent to Kafka and resumes sending from the next _id. Without RLT and SauronConsole running, new data will not be getting inserted into the MongoDB either.
 
 To reset the streaming from scratch do the following:
--- Delete the `event_counters` and `profile_counters` collections from the `counters` **database** in MongoDB
--- Either, delete the `profiles` and `events` Tables on BigQuery and recreate them with the same name and schema; OR
--- Create new tables in BigQuery for profiles and events (profiles_new, events_new) AND change the corresponding names in config.json
+
+- Delete the `event_counters` and `profile_counters` collections from the `counters` **database** in MongoDB
+- Either, delete the `profiles` and `events` Tables on BigQuery and recreate them with the same name and schema; 
+OR
+- Create new tables in BigQuery for profiles and events (profiles_new, events_new) AND change the corresponding names in config.json
 
 These steps should reset the streaming and allow you to stream data into BigQuery starting at _id==1 for `profiles` and `events`.
+Please do not delete any collections under the `sauron` MongoDB database as that contains the source documents (messages) that will be sent to BigQuery. If you deleted the sauron database, you can always `vagrant destroy` and `vagrant up` again.
+
 
