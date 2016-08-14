@@ -31,3 +31,11 @@ These are components that I developed specifically for the class project and hav
 
 Source code for these components is in **sauron_data_pipeline**.
 
+### Project Configuration
+**config.json** - This file contains URLs and topic/table names for Kafka, BigQuery and MongoDB (counters collection). I will describe below how some of these can be changed to restart the streaming process from scratch.
+
+### MongoDB Interaction
+**mongo_collection_manager.py** - This wraps the collection.find and collection.remove functions in pymongo's MongoClient. This is there more for convenience than anything else. For production, I will either strip this out or make it a more complete wrapper. Right now, this is only used in sauron_producer.py to get data from the source document collections i.e. the collections where the G2S Host dumps G2S messages that have come in from Slot machines (RLT). All other interaction with MongoDB e.g. updating the counter database, is still handled directly with MongoClient.
+
+### Kafka Interaction
+**sauron_producer.py** 
