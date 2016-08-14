@@ -36,6 +36,40 @@ Source code for these components is in **sauron_data_pipeline**.
 
 This file contains URLs and topic/table names for Kafka, BigQuery and MongoDB (counters collection). I will describe below how some of these can be changed to restart the streaming process from scratch.
 
+{
+  "kafka": {
+    "uri": "localhost:9092",
+    "topics": {
+      "profiles": "profiles",
+      "events": "events"
+    }
+  },
+  "bigquery": {
+    "projectid": "sauronbigquery",
+    "dataset": "sauron",
+    "tables": {
+      "profiles": "profiles",
+      "events": "events"
+    }
+  },
+  "local_mongodb": {
+    "uri": "localhost:27017",
+    "source_db": "sauron",
+    "source_collections": {
+      "profiles": "profile",
+      "events": "event"
+    },
+    "counters_db": "counters",
+    "counters_collection": {
+      "profiles": "profile_counters",
+      "events": "event_counters"
+    }
+  }
+}
+
+To reset streaming, create new tables in BigQuery for events and profiles and update the names in config.json e.g. `profiles_new` and `events_new`. AND, drop the `profile_counters` and `event_counters` collections from the `counters` database in MongoDB. This is described in more detail below.
+
+
 ### MongoDB Interaction
 **mongo_collection_manager.py** 
 
