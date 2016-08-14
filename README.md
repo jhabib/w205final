@@ -69,6 +69,7 @@ These are setup scripts to launch the bigquery handlers for the "profiles" and "
 The BigQuery project is called "sauronbigquery" and has the following structure:
 
 | Component | Name/Id |
+| --------- | --------- |
 | Project Id | sauronbigquery |
 | Dataset Name | sauron | 
 | Tables | Profiles 
