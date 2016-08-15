@@ -14,7 +14,7 @@ G2S Host is what communicates with Slot machines in Casinos. At work, we have an
 - Convert G2S messages from XML to JSON
 - Save the JSON messages into a MongoDB database
 
-While I cannot share the *entire* sorce code of the G2S Host, I can share code snippets where I deal with data conversion from XML to JSON, and with storing data into MongoDB. Code snippers are available in the directory called **csharp_code_snippets**.
+While I cannot share the *entire* sorce code of the G2S Host, I can share code snippets where I deal with data conversion from XML to JSON, and with storing data into MongoDB. Code snippets are available in the directory called **csharp_snippets**.
 
 I can also share a compiled .Net console app that loads the various components of the G2S Host. This console app is called **SauronConsole**. If you can run SauronConsole on a Windows PC (Win 7, x64 or similar) and give it a public IP address, I can point RLT to it and show data streaming in. That PC must meet the following requirements:
 - Have an IP address that I can access from the (public) Internet
