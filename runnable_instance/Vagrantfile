@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   # boxes at https://atlas.hashicorp.com/search.
   config.vm.box = "w205finalmjh"
   # config.vm.box_url = "https://1drv.ms/u/s!AgYnBUcU2XqTa3jK6SeBs13UVBY"
-  config.vm.box_url = "https://storage.googleapis.com/w205_final_vagrant/w205finalmjh.box"x 
+  config.vm.box_url = "https://storage.googleapis.com/w205_final_vagrant/w205finalmjh.box" 
   config.vm.network "forwarded_port", guest: 27017, host: 27017 # MongoDB
   config.vm.network "forwarded_port", guest: 2181, host: 2181 # Zookeeper
   config.vm.network "forwarded_port", guest: 9092, host: 9092 # Kafka
