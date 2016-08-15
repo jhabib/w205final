@@ -124,12 +124,15 @@ The **profiles** and **events** tables are pretty simple. The both have the same
 
 Please note that the tables in BigQuery are append-only and I have not yet implemented table partitioning or jobs to delete tables after some time. So the tables will continue to grow as new data comes in - up to the limit that Google allows.
 
+### BigQuery SQL
+The folder **bigquery_sql** contains SQL queries that were used to apply schema to the JSON strings and create various views.
+
 ### Tableau Workbook
 I created a Tableau workbook called **sauron_charts** to help visualize some data. Our marketing folks use Tableau so I figured I'd create a few examples for them.
 
 Note: our RLT load test scripts wager and win $100 per bet. Since that would result in atrocious aggregate values, I've used log values to make things look more realistic. I also multiplied the wins and wagers with a random number in the BigQuery view (egmWinLossOverTime) to make things a little more realistic.
 
-Tableau worksheets:
+**Tableau worksheets**:
 
 - logWinsWagersPerHour - average of wagers and wins per hour per Egm. This should tell marketing how much money is bet and won on an Egm per hour.
 - wagersWinsHistogram - wagers and wins binned into different dolalr values e.g. $0-$10, $11-$20 and so forth. This should tell marketing people what's the most popular wager amount.
