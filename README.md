@@ -114,7 +114,8 @@ Table | events - Events are the actual messages that come in from Egms. |
 | View | view_winLossByEgm - shows aggregate wagers and wins | 
 | View | wagerCategoryCountsByEgm - shows counts of various wager categories by Egm. This would show null for everything because we do not have wager categories in simulated Egms.
 
-The "profiles" and "events" tables are pretty simple. The both have the same structure:
+### BigQuery Tables Schema
+The **profiles** and **events** tables are pretty simple. The both have the same structure:
 
 - _id (integer) - an ever incremening _id assigned to each message as it comes in 
 - Topic (string) - defines whether an event or a profile came in; a little redundant at this point
