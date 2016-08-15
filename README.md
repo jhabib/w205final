@@ -24,7 +24,7 @@ I can also share a compiled .Net console app that loads the various components o
 
 SauronConsole can be downloaded at this URL: https://github.com/jhabib/w205final/blob/master/chsarp_snippets/SauronConsole/bin/Debug.zip
 
-I have also recorded a video of this RLT/G2S-stream-to-MongoDB process that you can download at: 
+I have also recorded a video of this RLT/G2S-stream-to-MongoDB process that you can download at: https://drive.google.com/file/d/0B7nKXpciVjthMENWVWFlSVJEWHc/view?usp=sharing 
 
 ## Components Developed Specifically for this Project
 These are components that I developed specifically for the class project and have all the source code available. There is no restriction on the use of these components.
